@@ -1,0 +1,1 @@
+console.log("MA DIGITAL STORE AI STUDIO");
