@@ -1,1 +1,11 @@
-console.log("MA DIGITAL STORE AI STUDIO");
+document.addEventListener("DOMContentLoaded", function () {
+
+    const button = document.querySelector("button");
+
+    button.addEventListener("click", function () {
+
+        alert("Welcome to MA DIGITAL STORE AI STUDIO");
+
+    });
+
+});
