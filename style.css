@@ -152,7 +152,37 @@ font-size:18px;
     text-align:center;
     color:#0057b8;
 }
+/* ===== AI Prompt Library ===== */
 
+.prompt-library{
+    padding:40px 20px;
+    background:#ffffff;
+}
+
+.prompt-library h2{
+    text-align:center;
+    color:#0057b8;
+    margin-bottom:30px;
+}
+
+.prompt-card{
+    background:#f8f9fc;
+    border-radius:12px;
+    padding:20px;
+    margin:20px auto;
+    max-width:500px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    text-align:center;
+}
+
+.prompt-card h3{
+    color:#0057b8;
+    margin-bottom:10px;
+}
+
+.prompt-card p{
+    margin-bottom:15px;
+}
 .dashboard .card{
     text-align:center;
     cursor:pointer;
