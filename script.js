@@ -342,7 +342,14 @@ if (generateCVButton) {
 
             const address =
                 document.getElementById("cvAddress").value.trim();
+const dob =
+    document.getElementById("cvDOB").value.trim();
 
+const nationality =
+    document.getElementById("cvNationality").value.trim();
+
+const languages =
+    document.getElementById("cvLanguages").value.trim();
             const summary =
                 document.getElementById("cvSummary").value.trim();
 
@@ -433,7 +440,29 @@ if (generateCVButton) {
 
             cvHTML +=
                 '<div class="cv-preview-contact">';
+if (dob !== "") {
 
+    cvHTML +=
+        "<br>Date of Birth: " +
+        escapeHTML(dob);
+
+}
+
+if (nationality !== "") {
+
+    cvHTML +=
+        "<br>Nationality: " +
+        escapeHTML(nationality);
+
+}
+
+if (languages !== "") {
+
+    cvHTML +=
+        "<br>Languages: " +
+        escapeHTML(languages);
+
+}
 
             if (father !== "") {
 
