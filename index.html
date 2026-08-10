@@ -24,13 +24,9 @@
 <nav class="navbar">
 
 <a href="#home">🏠 Dashboard</a>
-
 <a href="#tools">🛠 Business Tools</a>
-
-<a href="#domicile">🏛 Domicile</a>
-
+<a href="#domicile-tool">🏛 Domicile</a>
 <a href="#services">📋 Services</a>
-
 <a href="#income">📊 Income</a>
 
 </nav>
@@ -56,15 +52,13 @@ Open Dashboard
 <h2>Quick Access</h2>
 
 
-<div class="card" id="domicile">
+<div class="card">
 
 <h3>🏛 Government Services</h3>
 
-<p>
-Domicile & Government Service Assistant
-</p>
+<p>Domicile & Government Service Assistant</p>
 
-<button id="domicileBtn">
+<button onclick="openDomicile()">
 Open Domicile Assistant
 </button>
 
@@ -75,11 +69,9 @@ Open Domicile Assistant
 
 <h3>📄 CV Generator</h3>
 
-<p>
-Create professional CVs and resumes.
-</p>
+<p>Create professional CVs and resumes.</p>
 
-<button>
+<button onclick="showComingSoon('CV Generator')">
 Open CV Generator
 </button>
 
@@ -90,11 +82,9 @@ Open CV Generator
 
 <h3>📸 Passport Photos</h3>
 
-<p>
-Passport photo editing and printing.
-</p>
+<p>Passport photo editing and printing.</p>
 
-<button>
+<button onclick="showComingSoon('Passport Photo Tool')">
 Open Passport Photo Tool
 </button>
 
@@ -105,11 +95,9 @@ Open Passport Photo Tool
 
 <h3>🎨 AI Poster Generator</h3>
 
-<p>
-Create professional business posters.
-</p>
+<p>Create professional business posters.</p>
 
-<button>
+<button onclick="showComingSoon('AI Poster Generator')">
 Open Poster Generator
 </button>
 
@@ -120,26 +108,22 @@ Open Poster Generator
 
 <h3>📚 Prompt Library</h3>
 
-<p>
-Useful AI prompts for your daily business work.
-</p>
+<p>Useful AI prompts for daily business work.</p>
 
-<button>
+<button onclick="showComingSoon('Prompt Library')">
 Open Prompt Library
 </button>
 
 </div>
 
 
-<div class="card" id="income">
+<div class="card">
 
 <h3>📊 Income Tracker</h3>
 
-<p>
-Track daily income and business performance.
-</p>
+<p>Track daily income and business performance.</p>
 
-<button>
+<button onclick="showComingSoon('Income Tracker')">
 Open Income Tracker
 </button>
 
@@ -148,48 +132,276 @@ Open Income Tracker
 </section>
 
 
+<!-- ========================= -->
+<!-- DOMICILE ASSISTANT -->
+<!-- ========================= -->
+
 <section class="hero" id="domicile-tool">
 
 <h2>🏛 Domicile Assistant</h2>
 
 <p>
-A simple assistant for organizing domicile-related
-customer information and document requirements.
+Use this assistant to prepare a customer checklist
+for a Khyber Pakhtunkhwa domicile application.
 </p>
 
-<button id="domicileStartBtn">
-Start Domicile Assistant
+
+<div class="card domicile-box">
+
+<h3>Customer Information</h3>
+
+
+<label for="customerName">
+Customer Name
+</label>
+
+<input
+type="text"
+id="customerName"
+placeholder="Enter customer name"
+>
+
+
+<label for="fatherName">
+Father / Husband Name
+</label>
+
+<input
+type="text"
+id="fatherName"
+placeholder="Enter father or husband name"
+>
+
+
+<label for="cnic">
+CNIC / Form-B Number
+</label>
+
+<input
+type="text"
+id="cnic"
+placeholder="Enter CNIC or Form-B number"
+>
+
+
+<label for="district">
+District
+</label>
+
+<input
+type="text"
+id="district"
+placeholder="Example: Mardan"
+value="Mardan"
+>
+
+
+<label for="tehsil">
+Tehsil
+</label>
+
+<input
+type="text"
+id="tehsil"
+placeholder="Enter tehsil"
+>
+
+
+<label for="ageGroup">
+Applicant Age
+</label>
+
+<select id="ageGroup">
+
+<option value="">
+Select age group
+</option>
+
+<option value="under18">
+Under 18
+</option>
+
+<option value="18plus">
+18 or above
+</option>
+
+</select>
+
+
+<label for="applicationType">
+Application Type
+</label>
+
+<select id="applicationType">
+
+<option value="">
+Select application type
+</option>
+
+<option value="new">
+New Domicile
+</option>
+
+<option value="correction">
+Correction / Change
+</option>
+
+<option value="duplicate">
+Duplicate / Replacement
+</option>
+
+</select>
+
+
+<button id="checkDomicileBtn">
+Generate Customer Checklist
 </button>
+
+
+<div
+id="domicileResult"
+class="result-box"
+style="display:none;"
+>
+
+<h3>📋 Customer Checklist</h3>
+
+<div id="resultContent"></div>
+
+<button id="copyChecklistBtn">
+Copy Checklist
+</button>
+
+<button onclick="window.print()">
+🖨️ Print
+</button>
+
+</div>
+
+</div>
 
 </section>
 
+
+<!-- ========================= -->
+<!-- OFFICIAL LINKS -->
+<!-- ========================= -->
+
+<section class="dashboard">
+
+<h2>🔗 Official KP Domicile Links</h2>
+
+
+<div class="card">
+
+<h3>🏛 KP Citizens Facilitation Portal</h3>
+
+<p>
+Official Government of Khyber Pakhtunkhwa
+Domicile service portal.
+</p>
+
+<a
+href="https://cfc.kp.gov.pk/"
+target="_blank"
+>
+Open Official Portal
+</a>
+
+</div>
+
+
+<div class="card">
+
+<h3>🔎 Domicile Verification</h3>
+
+<p>
+Verify a domicile using the official KP portal.
+</p>
+
+<a
+href="https://cfc.kp.gov.pk/Domicile/DomicileVerification"
+target="_blank"
+>
+Open Verification
+</a>
+
+</div>
+
+
+<div class="card">
+
+<h3>📱 Official e-Domicile Information</h3>
+
+<p>
+Information about KP's official e-Domicile system,
+online application and tracking.
+</p>
+
+<a
+href="https://pmru.kp.gov.pk/e-domicile.php"
+target="_blank"
+>
+Open e-Domicile Information
+</a>
+
+</div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- SERVICES -->
+<!-- ========================= -->
 
 <section class="dashboard" id="services">
 
 <h2>📋 MA DIGITAL STORE Services</h2>
 
+
 <div class="card">
 🖨️ Printing & Photocopy
 </div>
+
 
 <div class="card">
 📝 Online Applications
 </div>
 
+
 <div class="card">
 📄 CV & Document Design
 </div>
+
 
 <div class="card">
 📸 Passport Photos
 </div>
 
+
 <div class="card">
 🎨 Graphic Design
 </div>
 
+
 <div class="card">
 💻 Digital & Online Services
+</div>
+
+</section>
+
+
+<section class="dashboard" id="income">
+
+<h2>📊 Business</h2>
+
+<div class="card">
+
+<p>
+Income Tracker will be developed in the
+next business phase.
+</p>
+
 </div>
 
 </section>
