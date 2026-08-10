@@ -702,3 +702,225 @@ footer {
         display: none !important;
     }
 }
+/* =========================================
+   CV GENERATOR
+   STEP 14.14
+========================================= */
+
+.cv-box {
+    max-width: 750px;
+    margin: 30px auto;
+    padding: 30px;
+    text-align: left;
+}
+
+.cv-box h3 {
+    color: #0b4ea2;
+    font-size: 22px;
+    margin-top: 25px;
+    margin-bottom: 12px;
+    border-bottom: 2px solid #e5edf6;
+    padding-bottom: 8px;
+}
+
+.cv-box h3:first-child {
+    margin-top: 0;
+}
+
+.cv-box label {
+    display: block;
+    margin-top: 14px;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #333;
+}
+
+.cv-box input,
+.cv-box textarea {
+    width: 100%;
+    padding: 13px 14px;
+    border: 1px solid #ccd5df;
+    border-radius: 8px;
+    background: white;
+    color: #222;
+    font-size: 16px;
+    outline: none;
+    resize: vertical;
+    transition: 0.3s;
+}
+
+.cv-box input:focus,
+.cv-box textarea:focus {
+    border-color: #0b4ea2;
+    box-shadow: 0 0 0 3px rgba(11, 78, 162, 0.12);
+}
+
+#generateCVBtn {
+    display: block;
+    width: 100%;
+    margin-top: 30px;
+    padding: 15px;
+    background: #0b4ea2;
+    color: white;
+    border: none;
+    border-radius: 9px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#generateCVBtn:hover {
+    background: #083b79;
+}
+
+
+/* =========================================
+   CV PREVIEW
+========================================= */
+
+#cvResult {
+    margin-top: 35px;
+    background: #eef4fb;
+    padding: 20px;
+}
+
+#cvResult > h3 {
+    text-align: center;
+    border-bottom: none;
+}
+
+#cvContent {
+    background: white;
+    color: #222;
+    max-width: 210mm;
+    min-height: 297mm;
+    margin: 20px auto;
+    padding: 22mm 18mm;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+    text-align: left;
+}
+
+
+/* CV heading */
+
+.cv-preview-name {
+    color: #0b4ea2;
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.cv-preview-contact {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+
+/* CV sections */
+
+.cv-preview-section {
+    margin-top: 22px;
+}
+
+.cv-preview-section h4 {
+    color: #0b4ea2;
+    font-size: 17px;
+    border-bottom: 2px solid #0b4ea2;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.cv-preview-section p {
+    margin-bottom: 6px;
+    line-height: 1.6;
+}
+
+
+/* CV action buttons */
+
+#copyCVBtn,
+#printCVBtn {
+    margin-top: 15px;
+}
+
+#copyCVBtn {
+    margin-right: 8px;
+}
+
+
+/* =========================================
+   CV MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .cv-box {
+        padding: 22px 18px;
+    }
+
+    .cv-box h3 {
+        font-size: 20px;
+    }
+
+    #cvContent {
+        min-height: auto;
+        padding: 25px 20px;
+        margin: 15px auto;
+    }
+
+    .cv-preview-name {
+        font-size: 25px;
+    }
+
+    #copyCVBtn,
+    #printCVBtn {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+
+/* =========================================
+   CV PRINT
+========================================= */
+
+@media print {
+
+    /* CV printing is handled separately
+       only when CV preview exists */
+
+    body.cv-printing * {
+        visibility: hidden !important;
+    }
+
+    body.cv-printing #cvResult,
+    body.cv-printing #cvResult * {
+        visibility: visible !important;
+    }
+
+    body.cv-printing #cvContent {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 210mm;
+        min-height: 297mm;
+        margin: 0;
+        padding: 15mm;
+        box-shadow: none;
+        background: white;
+    }
+
+    body.cv-printing #cvResult {
+        position: static;
+        background: white;
+        padding: 0;
+        margin: 0;
+    }
+
+    body.cv-printing #cvResult > h3,
+    body.cv-printing #copyCVBtn,
+    body.cv-printing #printCVBtn {
+        display: none !important;
+    }
+}
