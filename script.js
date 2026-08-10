@@ -1,85 +1,307 @@
+// ============================================
 // MA DIGITAL STORE AI STUDIO
+// SCRIPT.JS
+// Step 14.8 - Domicile Assistant
+// ============================================
+
+
+// ============================================
+// 1. OPEN DASHBOARD
+// ============================================
 
 const startButton = document.getElementById("startBtn");
 
 if (startButton) {
-  startButton.addEventListener("click", function () {
-    alert(
-`Welcome to MA DIGITAL STORE AI STUDIO
 
-Your AI Business Assistant is Ready.
+    startButton.addEventListener("click", function () {
 
-Next Features Coming Soon:
+        document.getElementById("tools").scrollIntoView({
+            behavior: "smooth"
+        });
 
-📚 Prompt Library
-🎨 Poster Generator
-📄 CV Generator
-🏛 Government Services
+    });
 
-Thank you for visiting!`
-    );
-  });
 }
 
-const promptButtons = document.querySelectorAll(".prompt-card button");
 
-const promptData = {
-  "🏛 Domicile Prompt": `Create a professional Domicile Certificate service poster for MA DIGITAL STORE.
+// ============================================
+// 2. OPEN DOMICILE ASSISTANT
+// ============================================
 
-Important:
-- Only Domicile service
-- Use clean Urdu text
-- Make it professional and print-ready
-- Include shop name: MA DIGITAL STORE
-- Add contact: 03275051049
-- Make the design suitable for Facebook, WhatsApp, and A4 poster`,
+function openDomicile() {
 
-  "📄 CV Prompt": `Create a professional ATS-friendly CV and Resume service poster for MA DIGITAL STORE.
+    const domicileSection =
+        document.getElementById("domicile-tool");
 
-Important:
-- Only CV service
-- Clean professional layout
-- Add shop name: MA DIGITAL STORE
-- Add contact: 03275051049
-- Suitable for Facebook, WhatsApp, and print`,
+    if (domicileSection) {
 
-  "📸 Passport Photo Prompt": `Create a professional passport photo editing service poster for MA DIGITAL STORE.
+        domicileSection.scrollIntoView({
+            behavior: "smooth"
+        });
 
-Important:
-- Only passport photo service
-- Clean background
-- Professional layout
-- Add shop name: MA DIGITAL STORE
-- Add contact: 03275051049
-- Suitable for social media and print`
-};
-
-promptButtons.forEach((button) => {
-  button.addEventListener("click", function () {
-    const card = button.closest(".prompt-card");
-    const title = card ? card.querySelector("h3")?.textContent.trim() : "";
-
-    const prompt = promptData[title] || "Prompt not found.";
-
-    const outputBox = document.getElementById("promptText");
-    const copyBtn = document.getElementById("copyPrompt");
-
-    if (outputBox) {
-      outputBox.value = prompt;
-      outputBox.focus();
-    } else {
-      alert(prompt);
     }
 
-    if (copyBtn) {
-      copyBtn.onclick = async function () {
-        try {
-          await navigator.clipboard.writeText(prompt);
-          alert("Prompt copied!");
-        } catch (error) {
-          alert("Copy failed. Please copy manually.");
+}
+
+
+// ============================================
+// 3. COMING SOON MESSAGE
+// ============================================
+
+function showComingSoon(toolName) {
+
+    alert(
+        toolName +
+        "\n\nThis tool is under development.\n\n" +
+        "MA DIGITAL STORE AI STUDIO"
+    );
+
+}
+
+
+// ============================================
+// 4. DOMICILE CHECKLIST
+// ============================================
+
+const checkDomicileButton =
+    document.getElementById("checkDomicileBtn");
+
+
+if (checkDomicileButton) {
+
+    checkDomicileButton.addEventListener(
+        "click",
+        function () {
+
+            const customerName =
+                document.getElementById("customerName").value.trim();
+
+            const fatherName =
+                document.getElementById("fatherName").value.trim();
+
+            const cnic =
+                document.getElementById("cnic").value.trim();
+
+            const district =
+                document.getElementById("district").value.trim();
+
+            const tehsil =
+                document.getElementById("tehsil").value.trim();
+
+            const ageGroup =
+                document.getElementById("ageGroup").value;
+
+            const applicationType =
+                document.getElementById("applicationType").value;
+
+
+            // -----------------------------
+            // CHECK REQUIRED INFORMATION
+            // -----------------------------
+
+            if (
+                customerName === "" ||
+                fatherName === "" ||
+                cnic === "" ||
+                district === "" ||
+                tehsil === "" ||
+                ageGroup === "" ||
+                applicationType === ""
+            ) {
+
+                alert(
+                    "Please complete all required fields first."
+                );
+
+                return;
+
+            }
+
+
+            // -----------------------------
+            // BASIC CHECKLIST
+            // -----------------------------
+
+            let checklist = "";
+
+            checklist +=
+                "<p><strong>Customer:</strong> " +
+                customerName +
+                "</p>";
+
+            checklist +=
+                "<p><strong>Father / Husband:</strong> " +
+                fatherName +
+                "</p>";
+
+            checklist +=
+                "<p><strong>District:</strong> " +
+                district +
+                "</p>";
+
+            checklist +=
+                "<p><strong>Tehsil:</strong> " +
+                tehsil +
+                "</p>";
+
+
+            checklist +=
+                "<hr>";
+
+
+            checklist +=
+                "<h4>📋 Basic Document Checklist</h4>";
+
+
+            checklist +=
+                "<ul>";
+
+            checklist +=
+                "<li>CNIC / Form-B of applicant</li>";
+
+            checklist +=
+                "<li>Father / Mother CNIC where applicable</li>";
+
+            checklist +=
+                "<li>Required photographs</li>";
+
+            checklist +=
+                "<li>Proof of residence where required</li>";
+
+            checklist +=
+                "<li>Relevant supporting documents</li>";
+
+            checklist +=
+                "</ul>";
+
+
+            // -----------------------------
+            // UNDER 18
+            // -----------------------------
+
+            if (ageGroup === "under18") {
+
+                checklist +=
+                    "<p><strong>⚠️ Under 18:</strong> " +
+                    "Additional documents may be required. " +
+                    "Verify current requirements with the relevant " +
+                    "KP office/CFC before submission.</p>";
+
+            }
+
+
+            // -----------------------------
+            // APPLICATION TYPE
+            // -----------------------------
+
+            if (applicationType === "new") {
+
+                checklist +=
+                    "<p><strong>Application:</strong> " +
+                    "New Domicile</p>";
+
+            }
+
+            if (applicationType === "correction") {
+
+                checklist +=
+                    "<p><strong>Application:</strong> " +
+                    "Correction / Change</p>";
+
+            }
+
+            if (applicationType === "duplicate") {
+
+                checklist +=
+                    "<p><strong>Application:</strong> " +
+                    "Duplicate / Replacement</p>";
+
+            }
+
+
+            // -----------------------------
+            // IMPORTANT NOTICE
+            // -----------------------------
+
+            checklist +=
+                "<hr>";
+
+            checklist +=
+                "<p><strong>⚠️ Important:</strong> " +
+                "This checklist is for assistance only. " +
+                "Final document requirements, verification and " +
+                "approval are determined by the relevant " +
+                "Government of Khyber Pakhtunkhwa office.</p>";
+
+
+            // -----------------------------
+            // SHOW RESULT
+            // -----------------------------
+
+            const resultBox =
+                document.getElementById("domicileResult");
+
+            const resultContent =
+                document.getElementById("resultContent");
+
+
+            resultContent.innerHTML = checklist;
+
+            resultBox.style.display = "block";
+
+
+            // Scroll to result
+
+            resultBox.scrollIntoView({
+                behavior: "smooth"
+            });
+
         }
-      };
-    }
-  });
-});
+    );
+
+}
+
+
+// ============================================
+// 5. COPY CHECKLIST
+// ============================================
+
+const copyChecklistButton =
+    document.getElementById("copyChecklistBtn");
+
+
+if (copyChecklistButton) {
+
+    copyChecklistButton.addEventListener(
+        "click",
+        async function () {
+
+            const resultContent =
+                document.getElementById("resultContent");
+
+            const text =
+                resultContent.innerText;
+
+
+            try {
+
+                await navigator.clipboard.writeText(text);
+
+                alert(
+                    "✅ Checklist copied successfully!"
+                );
+
+            }
+
+            catch (error) {
+
+                alert(
+                    "Copy failed. Please copy the checklist manually."
+                );
+
+            }
+
+        }
+    );
+
+}
