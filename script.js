@@ -1,7 +1,7 @@
 // ============================================
 // MA DIGITAL STORE AI STUDIO
 // SCRIPT.JS
-// Step 14.8 - Domicile Assistant
+// Step 14.15
 // ============================================
 
 
@@ -12,15 +12,17 @@
 const startButton = document.getElementById("startBtn");
 
 if (startButton) {
-
     startButton.addEventListener("click", function () {
 
-        document.getElementById("tools").scrollIntoView({
-            behavior: "smooth"
-        });
+        const tools = document.getElementById("tools");
+
+        if (tools) {
+            tools.scrollIntoView({
+                behavior: "smooth"
+            });
+        }
 
     });
-
 }
 
 
@@ -45,7 +47,27 @@ function openDomicile() {
 
 
 // ============================================
-// 3. COMING SOON MESSAGE
+// 3. OPEN CV GENERATOR
+// ============================================
+
+function openCVGenerator() {
+
+    const cvSection =
+        document.getElementById("cv-tool");
+
+    if (cvSection) {
+
+        cvSection.scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }
+
+}
+
+
+// ============================================
+// 4. COMING SOON
 // ============================================
 
 function showComingSoon(toolName) {
@@ -60,7 +82,7 @@ function showComingSoon(toolName) {
 
 
 // ============================================
-// 4. DOMICILE CHECKLIST
+// 5. DOMICILE CHECKLIST
 // ============================================
 
 const checkDomicileButton =
@@ -95,10 +117,6 @@ if (checkDomicileButton) {
                 document.getElementById("applicationType").value;
 
 
-            // -----------------------------
-            // CHECK REQUIRED INFORMATION
-            // -----------------------------
-
             if (
                 customerName === "" ||
                 fatherName === "" ||
@@ -118,26 +136,26 @@ if (checkDomicileButton) {
             }
 
 
-            // -----------------------------
-            // BASIC CHECKLIST
-            // -----------------------------
-
             let checklist = "";
+
 
             checklist +=
                 "<p><strong>Customer:</strong> " +
                 customerName +
                 "</p>";
 
+
             checklist +=
                 "<p><strong>Father / Husband:</strong> " +
                 fatherName +
                 "</p>";
 
+
             checklist +=
                 "<p><strong>District:</strong> " +
                 district +
                 "</p>";
+
 
             checklist +=
                 "<p><strong>Tehsil:</strong> " +
@@ -145,16 +163,14 @@ if (checkDomicileButton) {
                 "</p>";
 
 
-            checklist +=
-                "<hr>";
+            checklist += "<hr>";
 
 
             checklist +=
                 "<h4>📋 Basic Document Checklist</h4>";
 
 
-            checklist +=
-                "<ul>";
+            checklist += "<ul>";
 
             checklist +=
                 "<li>CNIC / Form-B of applicant</li>";
@@ -171,13 +187,8 @@ if (checkDomicileButton) {
             checklist +=
                 "<li>Relevant supporting documents</li>";
 
-            checklist +=
-                "</ul>";
+            checklist += "</ul>";
 
-
-            // -----------------------------
-            // UNDER 18
-            // -----------------------------
 
             if (ageGroup === "under18") {
 
@@ -190,10 +201,6 @@ if (checkDomicileButton) {
             }
 
 
-            // -----------------------------
-            // APPLICATION TYPE
-            // -----------------------------
-
             if (applicationType === "new") {
 
                 checklist +=
@@ -202,6 +209,7 @@ if (checkDomicileButton) {
 
             }
 
+
             if (applicationType === "correction") {
 
                 checklist +=
@@ -209,6 +217,7 @@ if (checkDomicileButton) {
                     "Correction / Change</p>";
 
             }
+
 
             if (applicationType === "duplicate") {
 
@@ -219,12 +228,8 @@ if (checkDomicileButton) {
             }
 
 
-            // -----------------------------
-            // IMPORTANT NOTICE
-            // -----------------------------
+            checklist += "<hr>";
 
-            checklist +=
-                "<hr>";
 
             checklist +=
                 "<p><strong>⚠️ Important:</strong> " +
@@ -234,10 +239,6 @@ if (checkDomicileButton) {
                 "Government of Khyber Pakhtunkhwa office.</p>";
 
 
-            // -----------------------------
-            // SHOW RESULT
-            // -----------------------------
-
             const resultBox =
                 document.getElementById("domicileResult");
 
@@ -245,16 +246,20 @@ if (checkDomicileButton) {
                 document.getElementById("resultContent");
 
 
-            resultContent.innerHTML = checklist;
+            if (resultContent) {
+                resultContent.innerHTML = checklist;
+            }
 
-            resultBox.style.display = "block";
 
+            if (resultBox) {
 
-            // Scroll to result
+                resultBox.style.display = "block";
 
-            resultBox.scrollIntoView({
-                behavior: "smooth"
-            });
+                resultBox.scrollIntoView({
+                    behavior: "smooth"
+                });
+
+            }
 
         }
     );
@@ -263,7 +268,7 @@ if (checkDomicileButton) {
 
 
 // ============================================
-// 5. COPY CHECKLIST
+// 6. COPY DOMICILE CHECKLIST
 // ============================================
 
 const copyChecklistButton =
@@ -279,6 +284,10 @@ if (copyChecklistButton) {
             const resultContent =
                 document.getElementById("resultContent");
 
+            if (!resultContent) {
+                return;
+            }
+
             const text =
                 resultContent.innerText;
 
@@ -291,9 +300,7 @@ if (copyChecklistButton) {
                     "✅ Checklist copied successfully!"
                 );
 
-            }
-
-            catch (error) {
+            } catch (error) {
 
                 alert(
                     "Copy failed. Please copy the checklist manually."
@@ -305,3 +312,348 @@ if (copyChecklistButton) {
     );
 
 }
+
+
+// ============================================
+// 7. CV GENERATOR
+// ============================================
+
+const generateCVButton =
+    document.getElementById("generateCVBtn");
+
+
+if (generateCVButton) {
+
+    generateCVButton.addEventListener(
+        "click",
+        function () {
+
+            const name =
+                document.getElementById("cvName").value.trim();
+
+            const father =
+                document.getElementById("cvFather").value.trim();
+
+            const phone =
+                document.getElementById("cvPhone").value.trim();
+
+            const email =
+                document.getElementById("cvEmail").value.trim();
+
+            const address =
+                document.getElementById("cvAddress").value.trim();
+
+            const summary =
+                document.getElementById("cvSummary").value.trim();
+
+            const education =
+                document.getElementById("cvEducation").value.trim();
+
+            const experience =
+                document.getElementById("cvExperience").value.trim();
+
+            const skills =
+                document.getElementById("cvSkills").value.trim();
+
+
+            // ========================================
+            // REQUIRED FIELD CHECK
+            // ========================================
+
+            if (
+                name === "" ||
+                phone === "" ||
+                summary === "" ||
+                education === "" ||
+                experience === "" ||
+                skills === ""
+            ) {
+
+                alert(
+                    "Please complete Name, Phone, Summary, Education, Experience and Skills."
+                );
+
+                return;
+
+            }
+
+
+            // ========================================
+            // PREPARE MULTI-LINE TEXT
+            // ========================================
+
+            const educationHTML =
+                education
+                    .split("\n")
+                    .filter(line => line.trim() !== "")
+                    .map(line =>
+                        "<p>" +
+                        escapeHTML(line.trim()) +
+                        "</p>"
+                    )
+                    .join("");
+
+
+            const experienceHTML =
+                experience
+                    .split("\n")
+                    .filter(line => line.trim() !== "")
+                    .map(line =>
+                        "<p>" +
+                        escapeHTML(line.trim()) +
+                        "</p>"
+                    )
+                    .join("");
+
+
+            const skillsHTML =
+                skills
+                    .split("\n")
+                    .filter(line => line.trim() !== "")
+                    .map(line =>
+                        "<p>" +
+                        escapeHTML(line.trim()) +
+                        "</p>"
+                    )
+                    .join("");
+
+
+            // ========================================
+            // CV HTML
+            // ========================================
+
+            let cvHTML = "";
+
+
+            cvHTML +=
+                '<div class="cv-preview-name">' +
+                escapeHTML(name) +
+                "</div>";
+
+
+            cvHTML +=
+                '<div class="cv-preview-contact">';
+
+
+            if (father !== "") {
+
+                cvHTML +=
+                    "Father: " +
+                    escapeHTML(father) +
+                    " | ";
+
+            }
+
+
+            cvHTML +=
+                "Phone: " +
+                escapeHTML(phone);
+
+
+            if (email !== "") {
+
+                cvHTML +=
+                    " | Email: " +
+                    escapeHTML(email);
+
+            }
+
+
+            if (address !== "") {
+
+                cvHTML +=
+                    "<br>Address: " +
+                    escapeHTML(address);
+
+            }
+
+
+            cvHTML +=
+                "</div>";
+
+
+            // ========================================
+            // SUMMARY
+            // ========================================
+
+            cvHTML +=
+                '<div class="cv-preview-section">' +
+                "<h4>PROFESSIONAL SUMMARY</h4>" +
+                "<p>" +
+                escapeHTML(summary) +
+                "</p>" +
+                "</div>";
+
+
+            // ========================================
+            // EDUCATION
+            // ========================================
+
+            cvHTML +=
+                '<div class="cv-preview-section">' +
+                "<h4>EDUCATION</h4>" +
+                educationHTML +
+                "</div>";
+
+
+            // ========================================
+            // EXPERIENCE
+            // ========================================
+
+            cvHTML +=
+                '<div class="cv-preview-section">' +
+                "<h4>WORK EXPERIENCE</h4>" +
+                experienceHTML +
+                "</div>";
+
+
+            // ========================================
+            // SKILLS
+            // ========================================
+
+            cvHTML +=
+                '<div class="cv-preview-section">' +
+                "<h4>SKILLS</h4>" +
+                skillsHTML +
+                "</div>";
+
+
+            // ========================================
+            // SHOW CV
+            // ========================================
+
+            const cvResult =
+                document.getElementById("cvResult");
+
+            const cvContent =
+                document.getElementById("cvContent");
+
+
+            if (cvContent) {
+
+                cvContent.innerHTML = cvHTML;
+
+            }
+
+
+            if (cvResult) {
+
+                cvResult.style.display = "block";
+
+                cvResult.scrollIntoView({
+                    behavior: "smooth"
+                });
+
+            }
+
+        }
+    );
+
+}
+
+
+// ============================================
+// 8. HTML SECURITY HELPER
+// ============================================
+
+function escapeHTML(text) {
+
+    const div =
+        document.createElement("div");
+
+    div.textContent = text;
+
+    return div.innerHTML;
+
+}
+
+
+// ============================================
+// 9. COPY CV
+// ============================================
+
+const copyCVButton =
+    document.getElementById("copyCVBtn");
+
+
+if (copyCVButton) {
+
+    copyCVButton.addEventListener(
+        "click",
+        async function () {
+
+            const cvContent =
+                document.getElementById("cvContent");
+
+            if (!cvContent) {
+                return;
+            }
+
+
+            const text =
+                cvContent.innerText;
+
+
+            try {
+
+                await navigator.clipboard.writeText(text);
+
+                alert(
+                    "✅ CV copied successfully!"
+                );
+
+            } catch (error) {
+
+                alert(
+                    "Copy failed. Please copy the CV manually."
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+// ============================================
+// 10. PRINT CV
+// ============================================
+
+const printCVButton =
+    document.getElementById("printCVBtn");
+
+
+if (printCVButton) {
+
+    printCVButton.addEventListener(
+        "click",
+        function () {
+
+            document.body.classList.add(
+                "cv-printing"
+            );
+
+
+            window.print();
+
+        }
+    );
+
+}
+
+
+// ============================================
+// 11. REMOVE PRINT MODE
+// ============================================
+
+window.addEventListener(
+    "afterprint",
+    function () {
+
+        document.body.classList.remove(
+            "cv-printing"
+        );
+
+    }
+);
