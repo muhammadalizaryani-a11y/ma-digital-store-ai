@@ -1,189 +1,484 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial,sans-serif;
+/* =========================================
+   MA DIGITAL STORE AI STUDIO
+   COMPLETE STYLE.CSS
+   Step 14.9
+========================================= */
+
+
+/* =========================================
+   GLOBAL
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
-body{
-background:#f4f7fb;
-color:#222;
+html {
+    scroll-behavior: smooth;
 }
 
-.header{
-background:#0b4ea2;
-color:white;
-text-align:center;
-padding:40px 20px;
+body {
+    background: #f4f7fb;
+    color: #222;
+    line-height: 1.6;
 }
 
-.header h1{
-font-size:34px;
-margin-bottom:10px;
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+    background: #0b4ea2;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
 }
 
-.header p{
-font-size:18px;
-opacity:0.9;
+.header h1 {
+    font-size: 34px;
+    margin-bottom: 8px;
 }
 
-.hero{
-text-align:center;
-padding:50px 20px;
+.header p {
+    font-size: 17px;
+    opacity: 0.9;
 }
 
-.hero h2{
-font-size:30px;
-color:#0b4ea2;
-margin-bottom:15px;
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    background: #083b79;
+    padding: 12px 15px;
 }
 
-.hero p{
-max-width:700px;
-margin:auto;
-line-height:1.8;
-font-size:18px;
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 9px 15px;
+    border-radius: 7px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: 0.3s;
 }
 
-button{
-margin-top:25px;
-padding:15px 35px;
-background:#0b4ea2;
-color:white;
-border:none;
-border-radius:10px;
-font-size:18px;
-cursor:pointer;
-transition:0.3s;
+.navbar a:hover {
+    background: #0057b8;
 }
 
-button:hover{
-background:#083b79;
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    text-align: center;
+    padding: 45px 20px;
 }
 
-.features{
-padding:50px 20px;
-text-align:center;
+.hero h2 {
+    font-size: 30px;
+    color: #0b4ea2;
+    margin-bottom: 12px;
 }
 
-.features h2{
-font-size:32px;
-margin-bottom:35px;
-color:#0b4ea2;
+.hero p {
+    max-width: 750px;
+    margin: 0 auto;
+    font-size: 17px;
 }
 
-.card{
-background:white;
-padding:25px;
-margin:20px auto;
-max-width:500px;
-border-radius:15px;
-box-shadow:0 10px 25px rgba(0,0,0,.1);
-font-size:22px;
-font-weight:bold;
-transition:.3s;
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+button {
+    margin-top: 20px;
+    padding: 13px 25px;
+    background: #0b4ea2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.card:hover{
-transform:translateY(-8px);
+button:hover {
+    background: #083b79;
+    transform: translateY(-2px);
 }
 
-footer{
-background:#111;
-color:white;
-text-align:center;
-padding:20px;
-margin-top:40px;
+
+/* =========================================
+   DASHBOARD
+========================================= */
+
+.dashboard {
+    padding: 35px 20px;
+    max-width: 1100px;
+    margin: auto;
+
+    display: grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 20px;
 }
 
-@media(max-width:768px){
-
-.header h1{
-font-size:28px;
+.dashboard > h2 {
+    grid-column: 1 / -1;
+    text-align: center;
+    color: #0057b8;
+    margin-bottom: 5px;
 }
 
-.hero h2{
-font-size:24px;
+
+/* =========================================
+   CARDS
+========================================= */
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 14px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.08);
+
+    transition: 0.3s;
 }
 
-.hero p{
-font-size:16px;
+.card:hover {
+    transform: translateY(-5px);
 }
 
-.card{
-font-size:18px;
+.card h3 {
+    margin-bottom: 8px;
 }
 
-}
-/* ===== Navigation ===== */
-
-.navbar{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:15px;
-    background:#083b79;
-    padding:15px;
+.card p {
+    margin-bottom: 5px;
 }
 
-.navbar a{
-    color:#ffffff;
-    text-decoration:none;
-    padding:10px 18px;
-    border-radius:8px;
-    font-weight:bold;
+
+/* =========================================
+   DOMICILE SECTION
+========================================= */
+
+#domicile-tool {
+    background: #eef4fb;
+    padding: 50px 20px;
 }
 
-.navbar a:hover{
-    background:#0057b8;
+#domicile-tool > h2 {
+    text-align: center;
 }
 
-/* ===== Dashboard ===== */
-
-.dashboard{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-    padding:40px 20px;
+#domicile-tool > p {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 25px;
 }
 
-.dashboard h2{
-    grid-column:1/-1;
-    text-align:center;
-    color:#0057b8;
-}
-/* ===== AI Prompt Library ===== */
 
-.prompt-library{
-    padding:40px 20px;
-    background:#ffffff;
-}
+/* =========================================
+   DOMICILE FORM
+========================================= */
 
-.prompt-library h2{
-    text-align:center;
-    color:#0057b8;
-    margin-bottom:30px;
+.domicile-box {
+    max-width: 650px;
+    margin: 30px auto;
+    padding: 30px;
 }
 
-.prompt-card{
-    background:#f8f9fc;
-    border-radius:12px;
-    padding:20px;
-    margin:20px auto;
-    max-width:500px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-    text-align:center;
+.domicile-box h3 {
+    text-align: center;
+    color: #0b4ea2;
+    font-size: 25px;
+    margin-bottom: 25px;
 }
 
-.prompt-card h3{
-    color:#0057b8;
-    margin-bottom:10px;
+
+/* =========================================
+   FORM LABELS
+========================================= */
+
+.domicile-box label {
+    display: block;
+    margin-top: 16px;
+    margin-bottom: 6px;
+
+    font-weight: bold;
+    font-size: 15px;
+    color: #333;
 }
 
-.prompt-card p{
-    margin-bottom:15px;
+
+/* =========================================
+   INPUTS & SELECT
+========================================= */
+
+.domicile-box input,
+.domicile-box select {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    border: 1px solid #ccd5df;
+    border-radius: 8px;
+
+    background: white;
+    color: #222;
+
+    font-size: 16px;
+
+    outline: none;
+
+    transition: 0.3s;
 }
-.dashboard .card{
-    text-align:center;
-    cursor:pointer;
+
+.domicile-box input:focus,
+.domicile-box select:focus {
+    border-color: #0b4ea2;
+
+    box-shadow:
+        0 0 0 3px rgba(11, 78, 162, 0.12);
+}
+
+
+/* =========================================
+   DOMICILE MAIN BUTTON
+========================================= */
+
+#checkDomicileBtn {
+    display: block;
+
+    width: 100%;
+
+    margin-top: 28px;
+
+    padding: 15px;
+
+    background: #0b4ea2;
+    color: white;
+
+    border: none;
+    border-radius: 9px;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+#checkDomicileBtn:hover {
+    background: #083b79;
+}
+
+
+/* =========================================
+   RESULT BOX
+========================================= */
+
+.result-box {
+    margin-top: 30px;
+
+    padding: 25px;
+
+    background: #f8fbff;
+
+    border: 1px solid #d5e3f2;
+
+    border-radius: 12px;
+}
+
+.result-box h3 {
+    color: #0b4ea2;
+    margin-bottom: 15px;
+}
+
+.result-box p {
+    margin-bottom: 10px;
+}
+
+.result-box ul {
+    padding-left: 22px;
+}
+
+.result-box li {
+    margin-bottom: 8px;
+}
+
+.result-box hr {
+    border: none;
+    border-top: 1px solid #d8e0e8;
+    margin: 18px 0;
+}
+
+
+/* =========================================
+   COPY & PRINT BUTTONS
+========================================= */
+
+#copyChecklistBtn {
+    margin-right: 8px;
+}
+
+.result-box button {
+    margin-top: 18px;
+}
+
+
+/* =========================================
+   OFFICIAL LINKS
+========================================= */
+
+.card a {
+    display: inline-block;
+
+    margin-top: 12px;
+
+    padding: 10px 16px;
+
+    background: #0b4ea2;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 7px;
+
+    font-weight: bold;
+}
+
+.card a:hover {
+    background: #083b79;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+    background: #111;
+    color: white;
+
+    text-align: center;
+
+    padding: 18px;
+
+    margin-top: 30px;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .header {
+        padding: 25px 15px;
+    }
+
+    .header h1 {
+        font-size: 25px;
+    }
+
+    .header p {
+        font-size: 15px;
+    }
+
+    .navbar {
+        gap: 5px;
+        padding: 10px;
+    }
+
+    .navbar a {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+
+    .hero {
+        padding: 35px 15px;
+    }
+
+    .hero h2 {
+        font-size: 25px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .dashboard {
+        grid-template-columns: 1fr;
+        padding: 25px 15px;
+    }
+
+    .domicile-box {
+        padding: 22px 18px;
+        margin: 20px auto;
+    }
+
+    .domicile-box h3 {
+        font-size: 22px;
+    }
+
+    .domicile-box input,
+    .domicile-box select {
+        font-size: 16px;
+        padding: 13px;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    #copyChecklistBtn {
+        margin-right: 0;
+    }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE PHONES
+========================================= */
+
+@media (max-width: 400px) {
+
+    .header h1 {
+        font-size: 21px;
+    }
+
+    .navbar a {
+        font-size: 11px;
+    }
+
+    .hero h2 {
+        font-size: 22px;
+    }
+
+    .domicile-box {
+        padding: 18px 14px;
+    }
+
 }
